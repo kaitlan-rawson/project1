@@ -1,18 +1,23 @@
 import React , {Component} from 'react'
 import App from '../../../src/App.js';
-import server from '../../../server/server.js'
+import Search from './search'
+import Notes from './notes'
 
 
-export default class Location extends Component{
+class Location extends Component{
     constructor(props){
         super (props)
 
     }
-}
+
 
 render(){
-    return (
-        
-        
+    return(
+        <div>
+            <Search/>
+        </div>
     )
 }
+}
+
+export default Location

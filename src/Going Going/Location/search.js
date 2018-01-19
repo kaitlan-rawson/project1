@@ -30,7 +30,7 @@ render(){
     return (
         <div class="submitbar">
             <input className = "searchbar" type="text" placeholder ="Search" onChange = {(event)=>{this.handleChangeSearch(event)}}></input> 
-            <button className = "submit" type = "submit" onClick ={(e)=>{this.picResults()}}>Submit</button> 
+            <button className = "submit" type = "submit" onClick ={()=>{this.picResults()}}>Submit</button> 
         </div>
         )
     }

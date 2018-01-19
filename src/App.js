@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './Going Going/Location/search';
+import Location from './Going Going/Location/location'
 
 class App extends Component {
   constructor(props){
@@ -14,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
        
-       <Search/>
+       <Location/>
 
       </div>
     );
