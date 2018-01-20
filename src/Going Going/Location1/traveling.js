@@ -4,7 +4,7 @@ import Search from './search'
 import Notes from './notes'
 
 
-class Location extends Component{
+class Traveling extends Component{
     constructor(props){
         super (props)
 
@@ -14,7 +14,7 @@ class Location extends Component{
 render(){
     return(
         <div>
-            <div className="Locations">
+            <div className="travellocation">
                 <Search/>
             </div>
         </div>
@@ -22,4 +22,4 @@ render(){
 }
 }
 
-export default Location
+export default Traveling
