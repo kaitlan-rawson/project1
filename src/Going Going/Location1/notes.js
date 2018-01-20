@@ -7,12 +7,7 @@ class Notes extends Component{
     render(){
         return(
             <div> 
-                <input className="notebox" 
-                type="text" 
-                placeholder ="Input"
-                onFocus={(e)=>e.target.placeholder=''}
-                onBlur={(e)=>e.target.placeholder='Input'}
-                size="1000" />
+                <textarea className="notebox"/>
             </div>
         )
     }

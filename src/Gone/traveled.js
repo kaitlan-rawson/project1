@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import Notes from '../Going Going/Location/notes'
+import './traveled.css'
 
 
 class Traveled extends Component{
