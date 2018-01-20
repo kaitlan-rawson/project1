@@ -15,7 +15,6 @@ render(){
     return(
         <div>
             <div className="Locations">
-                <Notes/>
                 <Search/>
             </div>
         </div>
