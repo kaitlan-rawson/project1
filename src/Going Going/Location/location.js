@@ -14,7 +14,10 @@ class Location extends Component{
 render(){
     return(
         <div>
-            <Search/>
+            <div className="Locations">
+                <Notes/>
+                <Search/>
+            </div>
         </div>
     )
 }

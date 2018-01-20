@@ -1,5 +1,4 @@
 import React , {Component} from 'react'
-import App from '../../../src/App.js';
 import axios from 'axios'
 
 
@@ -8,7 +7,7 @@ class Search extends Component{
         super (props);
 
         this.state = {
-            loc: 'chicago'
+            loc: ''
         }
 
     }
@@ -28,9 +27,17 @@ class Search extends Component{
 
 render(){
     return (
-        <div class="submitbar">
-            <input className = "searchbar" type="text" placeholder ="Search" onChange = {(event)=>{this.handleChangeSearch(event)}}></input> 
-            <button className = "submit" type = "submit" onClick ={()=>{this.picResults()}}>Submit</button> 
+        <div className="submitbar">
+            <input className="searchbar" 
+                type="text" 
+                placeholder = "Search"
+                value={this.state.loc} 
+                onChange={(event)=>{this.handleChangeSearch(event)}}
+                onFocus={(e)=>e.target.placeholder=''}
+                onBlur={(e)=>e.target.placeholder='Search'}/>
+            <button className="submit" 
+                type="submit" 
+                onClick={()=>{this.picResults()}}>Submit</button> 
         </div>
         )
     }
