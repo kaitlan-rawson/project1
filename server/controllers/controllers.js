@@ -8,12 +8,10 @@ module.exports = {
     
     }
 
-    post: (req,res)=>{
-        id++
-        let newLoc ={
-            id: id,
-            pic: req.body.pic
-        }
-        res.status.(200).send('Post working')
-    }
+//     post: (req,res)=>{
+//         id++
+//          Need to be able to post the picture and title on to server
+//         }
+//         res.status.(200).send('Post working')
+//     }
 }

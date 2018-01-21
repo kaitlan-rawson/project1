@@ -1,7 +1,5 @@
 import React , {Component} from 'react'
-import App from '../../../src/App.js';
 import Search from './search'
-import Notes from './notes'
 import LocationRender from './location'
 
 class Traveling extends Component{

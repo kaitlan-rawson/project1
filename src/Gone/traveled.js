@@ -4,10 +4,7 @@ import Notes from '../Going Going/OverallTraveling/notes'
 
 
 class Traveled extends Component{
-    constructor(props){
-        super (props)
 
-    }
 
 
 render(){
@@ -17,7 +14,7 @@ render(){
                 Traveled to these locations
 
                 <Notes/>
-        
+                {/* Need to be able to get the location I've put on my server and place it here / delete/ and add items back on to server  */}
 
                 
             </div>

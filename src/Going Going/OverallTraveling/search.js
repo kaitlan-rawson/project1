@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import axios from 'axios'
-import LocationRender from './location'
 
 
 class Search extends Component{
@@ -8,7 +7,9 @@ class Search extends Component{
         super (props);
 
         this.state = {
+            loc:'',
             showImage: false,
+            picUrl: ''
         }
 
     }
@@ -18,6 +19,7 @@ class Search extends Component{
         axios.get(picLink)
         .then(res => {
             console.log(res.data.hits[0].webformatURL)
+            this.setState({picUrl:res.data.hits[0].webformatURL})
             
         })
         return picLink
@@ -27,15 +29,21 @@ class Search extends Component{
         this.setState({loc:event.target.value})
     }
 
-    // toggleShowImage(){
-    //     this.setState({showImage: !showImage
-    //     })
-    // }
+    toggleShowImageAndPic(){
+        this.picResults()
+        this.toggleShowImage()
+    }
+
+    toggleShowImage() {
+        this.setState(function(prevState, props){
+            return {showImage : !prevState.showImage}
+        });
+}
 
 render(){
     return (
         <div className="submitbar">
-            {/* <div>{this.state.showImage ? <img src="https://www.w3schools.com/howto/img_fjords.jpg" /> : null}</div> */}
+            <div>{this.state.showImage ? <img src= {this.state.picUrl} /> : null}</div>
             <input className="searchbar" 
                 type="text" 
                 placeholder = "Search"
@@ -45,10 +53,12 @@ render(){
                 onBlur={(e)=>e.target.placeholder='Search'}/>
             <button className="submit" 
                 type="submit" 
-                onClick={()=>this.toggleShowImage}
-                // onClick={()=>} I need to be able to click this submit button and have it render all of location.js7
-                // need an on click that also sends the picture received to my server
-                onClick={()=>{this.picResults()}}>Submit</button>
+                // onClick={()=>} I need to be able to click this submit button and have it render all of location.js
+                // need an on click that also sends the picture received and title to my server
+                // <button onClick={() => this.props.functionInAnotherFile}></button>
+
+
+                onClick={()=>{this.toggleShowImageAndPic()}}>Submit</button>
         </div>
         )
     }

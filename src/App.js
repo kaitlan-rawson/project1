@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './Going Going/OverallTraveling/search';
 import Traveling from './Going Going/OverallTraveling/traveling';
-import Notes from './Going Going/OverallTraveling/notes'
 import Traveled from './Gone/traveled'
 
 class App extends Component {
