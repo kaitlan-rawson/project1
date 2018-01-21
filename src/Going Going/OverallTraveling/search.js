@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import axios from 'axios'
+import LocationRender from './location'
 
 
 class Search extends Component{
@@ -7,7 +8,7 @@ class Search extends Component{
         super (props);
 
         this.state = {
-            loc: ''
+            showImage: false,
         }
 
     }
@@ -19,15 +20,22 @@ class Search extends Component{
             console.log(res.data.hits[0].webformatURL)
             
         })
+        return picLink
     }
 
     handleChangeSearch(event){
         this.setState({loc:event.target.value})
     }
 
+    // toggleShowImage(){
+    //     this.setState({showImage: !showImage
+    //     })
+    // }
+
 render(){
     return (
         <div className="submitbar">
+            {/* <div>{this.state.showImage ? <img src="https://www.w3schools.com/howto/img_fjords.jpg" /> : null}</div> */}
             <input className="searchbar" 
                 type="text" 
                 placeholder = "Search"
@@ -37,7 +45,10 @@ render(){
                 onBlur={(e)=>e.target.placeholder='Search'}/>
             <button className="submit" 
                 type="submit" 
-                onClick={()=>{this.picResults()}}>Submit</button> 
+                onClick={()=>this.toggleShowImage}
+                // onClick={()=>} I need to be able to click this submit button and have it render all of location.js7
+                // need an on click that also sends the picture received to my server
+                onClick={()=>{this.picResults()}}>Submit</button>
         </div>
         )
     }

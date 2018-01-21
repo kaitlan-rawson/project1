@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import './traveled.css'
+import Notes from '../Going Going/OverallTraveling/notes'
 
 
 class Traveled extends Component{
@@ -14,6 +15,11 @@ render(){
         <div>
             <div className="traveledlocation">
                 Traveled to these locations
+
+                <Notes/>
+        
+
+                
             </div>
         </div>
     )

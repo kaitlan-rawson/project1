@@ -2,7 +2,7 @@ import React , {Component} from 'react'
 import App from '../../../src/App.js';
 import Search from './search'
 import Notes from './notes'
-import './traveling.css'
+import LocationRender from './location'
 
 class Traveling extends Component{
     constructor(props){
@@ -15,7 +15,7 @@ render(){
     return(
         <div>
             <div className="travellocation">
-                <Notes/>
+                <LocationRender/>
                 <Search/>
             </div>
         </div>

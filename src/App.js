@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './Going Going/Location1/search';
-import Traveling from './Going Going/Location1/traveling';
-import Notes from './Going Going/Location1/notes'
+import Search from './Going Going/OverallTraveling/search';
+import Traveling from './Going Going/OverallTraveling/traveling';
+import Notes from './Going Going/OverallTraveling/notes'
 import Traveled from './Gone/traveled'
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
         <div className="travel box1">
        <Traveling/>
        </div>
-       <div className="travl box2">
+       <div className="travel box2">
        <Traveled/>
        </div>
       </div>
