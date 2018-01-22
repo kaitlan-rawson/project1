@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notes from './notes'
 import Add from '../../Gone/addbutton'
+import './location.css'
 
 
 class LocationRender extends Component {

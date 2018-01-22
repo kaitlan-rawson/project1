@@ -3,6 +3,7 @@ import Search from './search'
 import LocationRender from './location'
 import axios from 'axios'
 import Add from '../../Gone/addbutton'
+import './traveling.css'
 
 class Traveling extends Component{
     constructor(props){
@@ -16,7 +17,7 @@ class Traveling extends Component{
     }
 
 render(){
-    var locations = this.props.picUrls.map((val)=> <div key= {'thisisdumb'+val.id}>
+    var locations = this.props.picUrls.map((val)=> <div className='unicorn' key= {'thisisdumb'+val.id}>
         <LocationRender key={'location' + val.id} 
         picUrl ={val.location}/>
         <Add key={'add' + val.id} id = {val.id} clickUpdate={this.props.clickUpdate}/>
