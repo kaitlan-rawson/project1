@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import LocationRender from './location'
 import Traveling from './traveling'
+import location from './location';
 
 
 
@@ -40,7 +41,7 @@ render(){
                 // <button onClick={() => this.props.functionInAnotherFile}></button>
 
 
-                onClick={()=>{LocationRender}}>Submit</button>
+                onClick={()=>{this.props.handleSubmit(this.state.loc)}}>Submit</button>
         </div>
         )
     }

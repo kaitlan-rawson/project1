@@ -7,11 +7,7 @@ const express = require ('express'),
 app.use(bodyParser.json())
 
 app.get('/api/travels',ctrl.get)
-// app.post('/api/travels',ctrl.post){
-//     .then(resp)=>{
-//         console.log('Test')
-//     }
-// }
+app.post('/api/travels',ctrl.post)
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
 

@@ -10,39 +10,61 @@ class Traveling extends Component{
         this.state = {
             loc: '',
             showImage: false,
-            picUrl: ''
+            picUrls: []
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
-    picResults(){
-        var picLink = 'https://pixabay.com/api/?key=7761184-83308192faad39a7dec4bcf7a&q='+this.state.loc+'&editors_choice=true';
+
+    handleSubmit(location){
+        this.setState({
+            loc: location
+        })
+        this.picResults(location)
+
+    }
+
+
+    picResults(location){
+       
+        var picLink = 'https://pixabay.com/api/?key=7761184-83308192faad39a7dec4bcf7a&q='+location+'&editors_choice=true';
         axios.get(picLink)
         .then(res => {
-            console.log(res.data.hits[0].webformatURL)
-            this.setState({picUrl:res.data.hits[0].webformatURL})
-            
+            var newPics = this.state.picUrls.concat(res.data.hits[0].webformatURL)            // this.setState({picUrls: newPics})
+            this.sendLocations(res.data.hits[0].webformatURL)
         })
-        return picLink
     }
 
-    toggleShowImageAndPic(){
-        this.picResults()
-        this.toggleShowImage()
+    sendLocations(location){
+        var locationObj = {location:location}
+        axios.post('http://localhost:3001/api/travels', locationObj)
+        .then(res=>{
+            this.getLocations()
+        })
+
     }
 
-    toggleShowImage() {
-        this.setState(function(prevState, props){
-            return {showImage : !prevState.showImage}
-        });
+    getLocations(){
+        axios.get('http://localhost:3001/api/travels')
+        .then(res=>{
+            this.setState({
+                picUrls: res.data
+            })
+        })
+    }
+
+    componentDidMount(){
+       this.getLocations()
     }
 
 
 render(){
+    var locations = this.state.picUrls.map((val,i)=><LocationRender key={i} picUrl ={val.location}/>)
     return(
         <div>
             <div className="travellocation">
-                <LocationRender picUrl ={this.state.picUrl}/>
-                <Search/>
+               {locations}
+                <Search handleSubmit ={this.handleSubmit}/>
             </div>
         </div>
     )
