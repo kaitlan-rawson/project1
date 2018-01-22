@@ -8,8 +8,8 @@ class Add extends Component {
             <div>
                 <button className='Add'
                 type='submit'
-                // onClick={()=>}
-                > Traveled!
+                onClick={()=>this.props.clickUpdate(this.props.id)}
+                > Traveled! {this.props.id}
                 
                 </button>
             </div>

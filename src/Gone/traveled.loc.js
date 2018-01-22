@@ -18,6 +18,7 @@ class TravelLocationRender extends Component {
 
          return(
              <div className="travel-location-render"> 
+             
              </div>
          )
      }

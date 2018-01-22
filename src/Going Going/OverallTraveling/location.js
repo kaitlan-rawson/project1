@@ -18,7 +18,7 @@ class LocationRender extends Component {
         return(
             <div className="location-render"> 
                 <img className = 'PicUrl' src = {this.props.picUrl}/>
-                <Notes/> <Add/>
+                <Notes/>
                
             </div>
         )

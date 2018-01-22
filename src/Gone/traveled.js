@@ -6,20 +6,20 @@ import Add from './addbutton'
 
 
 
-class Traveled extends Component{
+function Traveled(props){
 
-
-
-render(){
+console.log(props.filterTravel)
     return(
         <div>
             <div className="traveledlocation">
-                Traveled to these locations
+
                 
             </div>
         </div>
     )
 }
-}
+
+
+
 
 export default Traveled

@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 
 app.get('/api/travels',ctrl.get)
 app.post('/api/travels',ctrl.post)
+app.put('/api/travels/:id',ctrl.put)
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
 
