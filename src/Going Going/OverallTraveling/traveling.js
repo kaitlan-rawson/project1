@@ -30,7 +30,6 @@ class Traveling extends Component{
         var picLink = 'https://pixabay.com/api/?key=7761184-83308192faad39a7dec4bcf7a&q='+location+'&editors_choice=true';
         axios.get(picLink)
         .then(res => {
-            var newPics = this.state.picUrls.concat(res.data.hits[0].webformatURL)            // this.setState({picUrls: newPics})
             this.sendLocations(res.data.hits[0].webformatURL)
         })
     }
@@ -57,9 +56,12 @@ class Traveling extends Component{
        this.getLocations()
     }
 
+    handleAdd(){
+        this.locations
+    }
 
 render(){
-    var locations = this.state.picUrls.map((val,i)=><LocationRender key={i} picUrl ={val.location}/>)
+    var locations = this.state.picUrls.map((val)=><LocationRender key={val.id} picUrl ={val.location}/>)
     return(
         <div>
             <div className="travellocation">

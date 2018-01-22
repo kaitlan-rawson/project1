@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Notes from './notes'
-import Traveling from './traveling'
+import Add from '../../Gone/addbutton'
 
 
 class LocationRender extends Component {
@@ -14,11 +14,12 @@ class LocationRender extends Component {
 
 
     render (){
-        console.log(this.props.picUrl)
+
         return(
             <div className="location-render"> 
                 <img className = 'PicUrl' src = {this.props.picUrl}/>
-                <Notes/>
+                <Notes/> <Add/>
+               
             </div>
         )
     }

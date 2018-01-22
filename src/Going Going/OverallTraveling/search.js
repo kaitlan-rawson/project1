@@ -1,7 +1,4 @@
 import React , {Component} from 'react'
-import LocationRender from './location'
-import Traveling from './traveling'
-import location from './location';
 
 
 
@@ -36,11 +33,6 @@ render(){
                 onBlur={(e)=>e.target.placeholder='Search'}/>
             <button className="submit" 
                 type="submit" 
-                // onClick={()=>} I need to be able to click this submit button and have it render all of location.js
-                // need an on click that also sends the picture received and title to my server
-                // <button onClick={() => this.props.functionInAnotherFile}></button>
-
-
                 onClick={()=>{this.props.handleSubmit(this.state.loc)}}>Submit</button>
         </div>
         )

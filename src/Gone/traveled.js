@@ -1,6 +1,9 @@
 import React , {Component} from 'react'
 import './traveled.css'
-import Notes from '../Going Going/OverallTraveling/notes'
+import axios from 'axios'
+import Add from './addbutton'
+
+
 
 
 class Traveled extends Component{
@@ -12,10 +15,6 @@ render(){
         <div>
             <div className="traveledlocation">
                 Traveled to these locations
-
-                <Notes/>
-                {/* Need to be able to get the location I've put on my server and place it here / delete/ and add items back on to server  */}
-
                 
             </div>
         </div>
