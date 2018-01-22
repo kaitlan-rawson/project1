@@ -8,10 +8,18 @@ module.exports = {
     
     }
 
-//     post: (req,res)=>{
-//         id++
-//          Need to be able to post the picture and title on to server
-//         }
-//         res.status.(200).send('Post working')
+// post: (req,res)=>{
+//     id++
+
 //     }
+//     res.status.(200).send('Post working')
+// }
+
+// delete: (req,res)=>{
+//     res.status(200).send('Deleted')
+// }
+
+// update: (req,res)=>{
+        // res.status(200).send('Updated')
+// }
 }

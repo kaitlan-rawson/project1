@@ -1,5 +1,7 @@
 import React , {Component} from 'react'
-import axios from 'axios'
+import LocationRender from './location'
+import Traveling from './traveling'
+
 
 
 class Search extends Component{
@@ -8,38 +10,18 @@ class Search extends Component{
 
         this.state = {
             loc:'',
-            showImage: false,
-            picUrl: ''
+
         }
 
     }
 
-    picResults(){
-        var picLink = 'https://pixabay.com/api/?key=7761184-83308192faad39a7dec4bcf7a&q='+this.state.loc+'&editors_choice=true';
-        axios.get(picLink)
-        .then(res => {
-            console.log(res.data.hits[0].webformatURL)
-            this.setState({picUrl:res.data.hits[0].webformatURL})
-            
-        })
-        return picLink
-    }
-
+    
     handleChangeSearch(event){
         this.setState({loc:event.target.value})
     }
 
-    toggleShowImageAndPic(){
-        this.picResults()
-        this.toggleShowImage()
-    }
-
-    toggleShowImage() {
-        this.setState(function(prevState, props){
-            return {showImage : !prevState.showImage}
-        });
-}
-
+    
+    
 render(){
     return (
         <div className="submitbar">
@@ -58,7 +40,7 @@ render(){
                 // <button onClick={() => this.props.functionInAnotherFile}></button>
 
 
-                onClick={()=>{this.toggleShowImageAndPic()}}>Submit</button>
+                onClick={()=>{LocationRender}}>Submit</button>
         </div>
         )
     }

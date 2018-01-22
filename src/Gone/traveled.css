@@ -1,7 +1,6 @@
 .traveledlocation{
-    border-left: 1px solid grey;
     height: 100vh;
     width: 50vw;
     text-align: center;
-    background-color: red
+    background-color:grey
 }
