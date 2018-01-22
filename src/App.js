@@ -10,6 +10,7 @@ class App extends Component {
 
     this.state= {
       picUrls: [],
+      traveled: [],
       loc: '',
       
     } 
@@ -48,8 +49,12 @@ sendLocations(location){
 getLocations(){
     axios.get('http://localhost:3001/api/travels')
     .then(res=>{
+      var traveled = res.data.filter((val)=>val.traveled)
+      var notTraveled = res.data.filter((val)=>!val.traveled)
+       console.log(traveled,notTraveled)
         this.setState({
-            picUrls: res.data
+            picUrls: notTraveled,
+            traveled: traveled
         })
     })
 }
@@ -58,13 +63,10 @@ componentDidMount(){
   this.getLocations()
 }
 
-filterTraveled(){
-  var traveled = this.state.picUrls.filter((val)=>val.traveled)
-  console.log(traveled)
-  return traveled
-}
+
 
 clickUpdate(id){
+  console.log('click', id)
   axios.put('http://localhost:3001/api/travels/'+id)
   .then(res=>{
     console.log(res.data)
@@ -72,15 +74,14 @@ clickUpdate(id){
 }
 
   render() {
-let traveled =   this.filterTraveled()
-
+console.log(this.state.traveled)
     return (
       <div className="App">
         <div className="travel box1">
        <Traveling handleSubmit={this.handleSubmit} picUrls={this.state.picUrls} clickUpdate={this.clickUpdate}/>       
        </div>
        <div className="travel box2">
-       <Traveled fitlerTravel ={traveled}/>
+       <Traveled fitlerTravel ={this.state.traveled}/>
        </div>
       </div>
     );

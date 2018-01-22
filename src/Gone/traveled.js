@@ -8,7 +8,7 @@ import Add from './addbutton'
 
 function Traveled(props){
 
-console.log(props.filterTravel)
+console.log(props)
     return(
         <div>
             <div className="traveledlocation">

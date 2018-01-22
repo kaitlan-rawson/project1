@@ -24,9 +24,11 @@ module.exports = {
 //     res.status(200).send('Deleted')
 // }
 
-put: (req,res)=>{
+put: (req,res)=>{ 
+    console.log('hi'+req.params.id)
     locations = locations.map((val)=>{
-        if(val.id ===req.params.id){ 
+        console.log(val.id,req.params.id)
+        if(val.id == req.params.id){ 
             console.log(true)
             val.traveled = true
         }
