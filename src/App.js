@@ -16,6 +16,8 @@ class App extends Component {
     } 
       this.getLocations = this.getLocations.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
+      this.clickUpdate = this.clickUpdate.bind(this)
+      this.clickDelete = this.clickDelete.bind(this)
   }
 
   handleSubmit(location){
@@ -49,6 +51,7 @@ sendLocations(location){
 getLocations(){
     axios.get('http://localhost:3001/api/travels')
     .then(res=>{
+      console.log('LOOK HERE', res.data)
       var traveled = res.data.filter((val)=>val.traveled)
       var notTraveled = res.data.filter((val)=>!val.traveled)
        console.log(traveled,notTraveled)
@@ -63,13 +66,19 @@ componentDidMount(){
   this.getLocations()
 }
 
-
-
 clickUpdate(id){
   console.log('click', id)
   axios.put('http://localhost:3001/api/travels/'+id)
   .then(res=>{
     console.log(res.data)
+    this.getLocations()
+  })
+}
+
+clickDelete(id){
+  axios.delete('http://localhost:3001/api/travels/'+id)
+  .then(res=>{
+    this.getLocations()
   })
 }
 
@@ -81,7 +90,7 @@ console.log(this.state.traveled)
        <Traveling handleSubmit={this.handleSubmit} picUrls={this.state.picUrls} clickUpdate={this.clickUpdate}/>       
        </div>
        <div className="travel box2">
-       <Traveled fitlerTravel ={this.state.traveled}/>
+       <Traveled filterTravel ={this.state.traveled} clickDelete={this.clickDelete}/>
        </div>
       </div>
     );

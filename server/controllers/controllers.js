@@ -4,7 +4,6 @@ let id = 0;
 module.exports = {
 
     get: (req,res)=>{
-
         res.status(200).send(locations)
     
     },
@@ -20,12 +19,17 @@ module.exports = {
     res.status(200).send(locations)
     },
 
-// delete: (req,res)=>{
-//     res.status(200).send('Deleted')
-// }
+
+    delete: (req,res)=>{
+        console.log('id',req.params.id)
+        locations = locations.filter((val,index)=>{
+            return val.id!=req.params.id
+        })
+        console.log(locations)
+    res.status(200).send('Deleted')
+    },
 
 put: (req,res)=>{ 
-    console.log('hi'+req.params.id)
     locations = locations.map((val)=>{
         console.log(val.id,req.params.id)
         if(val.id == req.params.id){ 

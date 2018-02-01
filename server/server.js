@@ -10,6 +10,7 @@ app.use(cors());
 app.get('/api/travels',ctrl.get)
 app.post('/api/travels',ctrl.post)
 app.put('/api/travels/:id',ctrl.put)
+app.delete('/api/travels/:id',ctrl.delete)
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
 

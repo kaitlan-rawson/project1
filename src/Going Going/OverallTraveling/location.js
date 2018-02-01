@@ -5,22 +5,14 @@ import './location.css'
 
 
 class LocationRender extends Component {
-   constructor(props){
-       super(props);
-
-       this.state = {
-
-       }
-   }
-
 
     render (){
-
+        console.log(this.props.id)
         return(
             <div className="location-render"> 
                 <img className = 'PicUrl' src = {this.props.picUrl}/>
                 <Notes/>
-               
+                <Add id = {this.props.picId} clickUpdate={this.props.clickUpdate}/>
             </div>
         )
     }
