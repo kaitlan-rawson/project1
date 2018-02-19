@@ -8,7 +8,7 @@ class Delete extends Component {
                 <button className='Delete'
                 type = 'submit'
                 onClick={()=>this.props.clickDelete(this.props.picId)}
-                > Delete! {this.props.picId}
+                > Delete! 
                 </button>
             </div>
         )
